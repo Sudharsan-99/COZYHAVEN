@@ -1,0 +1,6 @@
+C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\obj\Debug\net8.0\staticwebassets.build.json
