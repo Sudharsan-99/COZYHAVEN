@@ -40,6 +40,7 @@ namespace DAL.Models.Main
         public ICollection<HotelFacility> Facilities { get; set; } = new List<HotelFacility>();
 
         public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public ICollection<Booking> Bookings { get; set; } = new List<Booking>();
     }
 
 }

@@ -87,6 +87,13 @@ namespace DAL.Context
                 .WithMany(h => h.Reviews)
                 .HasForeignKey(r => r.HotelId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Booking - Hotel
+            modelBuilder.Entity<Booking>()
+                .HasOne(b => b.Hotel)
+                .WithMany(h => h.Bookings)
+                .HasForeignKey(b => b.HotelId)
+                .OnDelete(DeleteBehavior.Restrict); // prevent cascade path conflict
         }
     }
 }

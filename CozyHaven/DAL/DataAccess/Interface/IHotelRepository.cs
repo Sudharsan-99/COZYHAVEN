@@ -10,5 +10,9 @@ namespace DAL.DataAccess.Interface
     public interface IHotelRepository : IRepository<Hotel>
     {
         Task<IEnumerable<Hotel>> GetHotelsByLocationAsync(string location);
+        Task<IEnumerable<Hotel>> GetHotelsByOwnerAsync(int ownerId);
+        Task<Hotel?> GetHotelByNameAsync(string name);
+
+
     }
 }

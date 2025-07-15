@@ -10,5 +10,6 @@ namespace ServiceLayer.Services.Interfaces
         Task<bool> UpdateBookingAsync(int id, Booking updatedBooking);
         Task<bool> DeleteBookingAsync(int id);
         Task<IEnumerable<Booking>> GetBookingsByUserIdAsync(int userId);
+       // Task<string?> GetUserBookingsAsync(string? userId);
     }
 }

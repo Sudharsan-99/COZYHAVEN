@@ -1,5 +1,6 @@
 ﻿using DAL.DataAccess.Interface;
 using DAL.Models.Main;
+using Microsoft.EntityFrameworkCore;
 using ServiceLayer.Services.Interfaces;
 
 namespace ServiceLayer.Services.Implementation
@@ -60,9 +61,22 @@ namespace ServiceLayer.Services.Implementation
             return await _hotelRepository.GetHotelsByLocationAsync(location);
         }
 
-        //public async Task<IEnumerable<Hotel>> GetHotelsByOwnerAsync(int ownerId)
+        public async Task<IEnumerable<Hotel>> GetHotelsByOwnerAsync(int ownerId)
+        {
+            return await _hotelRepository.GetHotelsByOwnerAsync(ownerId);
+        }
+        //public async Task<IEnumerable<Hotel>> GetHotelsByOwnerIdAsync(int ownerId)
         //{
         //    return await _hotelRepository.GetHotelsByOwnerAsync(ownerId);
         //}
+
+        public async Task<Hotel?> GetHotelByNameAsync(string name)
+        {
+            return await _hotelRepository.GetHotelByNameAsync(name);
+        }
+
+
+
+
     }
 }

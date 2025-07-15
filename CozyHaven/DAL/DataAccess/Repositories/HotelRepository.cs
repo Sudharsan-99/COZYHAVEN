@@ -58,6 +58,7 @@ namespace DAL.DataAccess.Repositories
         public async Task<IEnumerable<Hotel>> GetHotelsByOwnerAsync(int ownerId)
         {
             return await _context.Hotels
+                .Include(h => h.Rooms)
                 .Where(h => h.OwnerId == ownerId)
                 .ToListAsync();
         }
@@ -67,6 +68,13 @@ namespace DAL.DataAccess.Repositories
                 .Where(h => h.Location.Contains(location))
                 .ToListAsync();
         }
+
+        public async Task<Hotel?> GetHotelByNameAsync(string name)
+        {
+            return await _context.Hotels.FirstOrDefaultAsync(h => h.Name == name);
+        }
+
+
 
     }
 }

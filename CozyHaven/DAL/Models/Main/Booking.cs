@@ -53,6 +53,11 @@ namespace DAL.Models.Main
 
        // [JsonIgnore] 
         public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+        [Required]
+        public int HotelId { get; set; }
+        [JsonIgnore]
+        [ValidateNever]
+        public Hotel Hotel { get; set; }
     }
 
 }

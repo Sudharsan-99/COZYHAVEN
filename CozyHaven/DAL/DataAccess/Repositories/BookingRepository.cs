@@ -24,6 +24,7 @@ namespace DAL.DataAccess.Repositories
             return await _context.Bookings
                 .Include(b => b.User)
                 .Include(b => b.Room)
+                .Include(b => b.Hotel)
                 .ToListAsync();
         }
 
@@ -32,6 +33,7 @@ namespace DAL.DataAccess.Repositories
             return await _context.Bookings
                 .Include(b => b.User)
                 .Include(b => b.Room)
+                .Include(b => b.Hotel) // ✅ include Hotel
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
 
@@ -59,6 +61,7 @@ namespace DAL.DataAccess.Repositories
         {
             return await _context.Bookings
                 .Include(b => b.Room)
+                 .Include(b => b.Hotel) // ✅ include Hotel
                 .Where(b => b.UserId == userId)
                 .ToListAsync();
         }

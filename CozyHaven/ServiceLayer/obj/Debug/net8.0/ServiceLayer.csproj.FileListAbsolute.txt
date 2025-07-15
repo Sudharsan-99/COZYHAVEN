@@ -102,3 +102,4 @@ C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\bin\Debug\net8.0\Microsof
 C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
 C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\test\Desktop\CozyHaven\CozyHaven\ServiceLayer\obj\Debug\net8.0\ServiceLayer.sourcelink.json

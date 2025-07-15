@@ -27,8 +27,26 @@ namespace ServiceLayer.Controllers
             }
 
             var token = _jwtTokenService.GenerateToken(user);
-            return Ok(new { token });
+
+            // Return different ID field based on role
+            var response = new Dictionary<string, object>
+    {
+        { "token", token },
+        { "role", user.Role }
+    };
+
+            if (user.Role == "Hotel Owner")
+            {
+                response.Add("ownerId", user.Id);
+            }
+            else if (user.Role == "User")
+            {
+                response.Add("userId", user.Id);
+            }
+
+            return Ok(response);
         }
+
     }
 
     public class LoginRequest

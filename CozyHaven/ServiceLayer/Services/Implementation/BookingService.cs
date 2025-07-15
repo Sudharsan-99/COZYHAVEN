@@ -15,8 +15,22 @@ namespace ServiceLayer.Services.Implementation
 
         public async Task<IEnumerable<Booking>> GetAllBookingsAsync()
         {
-            return await _bookingRepository.GetAllAsync();
+            var bookings = await _bookingRepository.GetAllAsync();
+
+            return bookings.Select(b => new Booking
+            {
+                Id = b.Id,
+                UserId = b.UserId,
+                RoomId = b.RoomId,
+                HotelId = b.HotelId,
+                CheckInDate = b.CheckInDate,
+                CheckOutDate = b.CheckOutDate,
+                NumberOfGuests = b.NumberOfGuests,
+                TotalAmount = b.TotalAmount,
+                Status = b.Status
+            });
         }
+
 
         public async Task<Booking?> GetBookingByIdAsync(int id)
         {

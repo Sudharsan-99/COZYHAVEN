@@ -96,6 +96,22 @@
   },
   {
     "ContainingType": "ServiceLayer.Controllers.BookingController",
+    "Method": "BookByHotelName",
+    "RelativePath": "api/Booking/book-by-hotel-name",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ServiceLayer.Services.BookingByHotelNameRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServiceLayer.Controllers.BookingController",
     "Method": "GetBookingsByUserId",
     "RelativePath": "api/Booking/user/{userId}",
     "HttpMethod": "GET",
@@ -280,6 +296,22 @@
         "Name": "location",
         "Type": "System.String",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServiceLayer.Controllers.HotelController",
+    "Method": "GetHotelsByOwnerId",
+    "RelativePath": "api/Hotel/owner/{ownerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ownerId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

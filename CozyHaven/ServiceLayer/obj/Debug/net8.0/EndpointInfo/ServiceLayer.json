@@ -184,6 +184,37 @@
         }
       }
     },
+    "/api/Booking/book-by-hotel-name": {
+      "post": {
+        "tags": [
+          "Booking"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingByHotelNameRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingByHotelNameRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookingByHotelNameRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Facility": {
       "get": {
         "tags": [
@@ -445,6 +476,29 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Hotel/owner/{ownerId}": {
+      "get": {
+        "tags": [
+          "Hotel"
+        ],
+        "parameters": [
+          {
+            "name": "ownerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -1341,6 +1395,7 @@
         "required": [
           "checkInDate",
           "checkOutDate",
+          "hotelId",
           "numberOfGuests",
           "roomId",
           "status",
@@ -1390,6 +1445,44 @@
               "$ref": "#/components/schemas/Payment"
             },
             "nullable": true
+          },
+          "hotelId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BookingByHotelNameRequest": {
+        "type": "object",
+        "properties": {
+          "hotelName": {
+            "type": "string",
+            "nullable": true
+          },
+          "roomId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "checkInDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "checkOutDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numberOfGuests": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalAmount": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
@@ -1457,6 +1550,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Review"
+            },
+            "nullable": true
+          },
+          "bookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Booking"
             },
             "nullable": true
           }

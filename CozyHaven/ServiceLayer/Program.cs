@@ -105,7 +105,19 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+//Angular CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", builder =>
+    {
+        builder.WithOrigins("http://localhost:4200")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+app.UseCors("AllowAngularApp");
 
 // Middleware pipeline
 if (app.Environment.IsDevelopment())
@@ -113,6 +125,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

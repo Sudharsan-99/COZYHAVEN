@@ -8,7 +8,8 @@ namespace ServiceLayer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Hotel Owner,User")]
+
     public class HotelController : ControllerBase
     {
         private readonly IHotelService _hotelService;
@@ -80,5 +81,17 @@ namespace ServiceLayer.Controllers
 
             return NoContent();
         }
+
+        // GET: api/hotel/owner/4
+        [HttpGet("owner/{ownerId}")]
+        public async Task<IActionResult> GetHotelsByOwnerId(int ownerId)
+        {
+            var hotels = await _hotelService.GetHotelsByOwnerAsync(ownerId);
+            if (hotels == null || !hotels.Any())
+                return NotFound();
+
+            return Ok(hotels);
+        }
+
     }
 }

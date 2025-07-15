@@ -10,6 +10,12 @@ namespace ServiceLayer.Services.Interfaces
         Task<bool> UpdateHotelAsync(int id, Hotel updatedHotel);
         Task<bool> DeleteHotelAsync(int id);
         Task<IEnumerable<Hotel>> GetHotelsByLocationAsync(string location);
+        Task<IEnumerable<Hotel>> GetHotelsByOwnerAsync(int ownerId);
+
+        Task<Hotel?> GetHotelByNameAsync(string name);
+
+
+
         //Task<IEnumerable<Hotel>> GetHotelsByOwnerAsync(int ownerId);
     }
 }

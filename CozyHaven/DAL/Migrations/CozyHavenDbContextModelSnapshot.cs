@@ -68,6 +68,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("CheckOutDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
                     b.Property<int>("NumberOfGuests")
                         .HasColumnType("int");
 
@@ -86,6 +89,8 @@ namespace DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HotelId");
 
                     b.HasIndex("RoomId");
 
@@ -320,6 +325,12 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Models.Main.Booking", b =>
                 {
+                    b.HasOne("DAL.Models.Main.Hotel", "Hotel")
+                        .WithMany("Bookings")
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("DAL.Models.Main.Room", "Room")
                         .WithMany()
                         .HasForeignKey("RoomId")
@@ -331,6 +342,8 @@ namespace DAL.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Hotel");
 
                     b.Navigation("Room");
 
@@ -407,6 +420,8 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Models.Main.Hotel", b =>
                 {
+                    b.Navigation("Bookings");
+
                     b.Navigation("Facilities");
 
                     b.Navigation("Reviews");
